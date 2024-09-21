@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Button, Container, Input, Text } from 'retro-react'; // Use Input from retro-react
-import '../App.css';
+import '../styles/pages/_SignupPage.scss';  // SCSS 파일을 import
 
-function SignupPage() {
+function SignupPage({ closeModal }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -13,38 +12,48 @@ function SignupPage() {
       return;
     }
     console.log('Signing up with', email, password);
-    // Add actual sign-up logic here
+    closeModal(); // 모달 닫기
   };
 
   return (
-    <Container className="signup-page">
-      <Text variant="h1">회원가입</Text>
-      <Input
+    <div className="signup-page">
+      <h3>회원가입</h3> {/* Text 대신 h3 태그 */}
+      <input
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="이메일"
-        sx={{ marginBottom: '10px' }}
+        className="input-field"  // SCSS에서 스타일 적용
       />
-      <Input
+      <input
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         placeholder="비밀번호"
-        sx={{ marginBottom: '10px' }}
+        className="input-field"
       />
-      <Input
+      <input
         type="password"
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
         placeholder="비밀번호 확인"
-        sx={{ marginBottom: '10px' }}
+        className="input-field"
       />
-      <Button onClick={handleSignUp} sx={{ opacity: 0.7 }}>
+      <button
+        onClick={handleSignUp}
+        className="btn signup-btn"  // SCSS에서 스타일 적용
+      >
         회원가입
-      </Button>
-    </Container>
+      </button>
+      <button
+        onClick={closeModal}
+        className="btn close-btn"
+      >
+        닫기
+      </button>
+    </div>
   );
 }
 
 export default SignupPage;
+
 

@@ -1,37 +1,46 @@
 import React, { useState } from 'react';
-import { Button, Container, Input, Text } from 'retro-react'; // Use Input from retro-react
-import '../App.css';
+import '../styles/pages/_LoginPage.scss';  // SCSS 파일을 import
 
-function LoginPage() {
+function LoginPage({ closeModal }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
     console.log('Logging in with', email, password);
-    // Add actual login logic here
+    closeModal(); // 모달 닫기
   };
 
   return (
-    <Container className="login-page">
-      <Text variant="h1">로그인</Text>
-      <Input
+    <div className="login-page">
+      <h3>로그인</h3> {/* 기본 HTML 요소 사용 */}
+      <input
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="이메일"
-        sx={{ marginBottom: '10px' }}
+        className="input-field"  // SCSS로 스타일 적용
       />
-      <Input
+      <input
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         placeholder="비밀번호"
-        sx={{ marginBottom: '10px' }}
+        className="input-field"
       />
-      <Button onClick={handleLogin} sx={{ opacity: 0.7 }}>
+      <button
+        onClick={handleLogin}
+        className="btn login-btn"  // SCSS로 스타일 적용
+      >
         로그인
-      </Button>
-    </Container>
+      </button>
+      <button
+        onClick={closeModal}
+        className="btn close-btn"  // 닫기 버튼 스타일링
+      >
+        닫기
+      </button>
+    </div>
   );
 }
 
 export default LoginPage;
+

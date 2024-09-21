@@ -45,12 +45,12 @@ button {
 
   &:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 4px coral, 0 0 8px coral;
+    box-shadow: 0 0 4px rgb(255, 255, 255), 0 0 8px rgb(255, 255, 255);
   }
 
   &.on {
-    color: coral;
-    border: 1px solid coral;
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
   }
 }
 
