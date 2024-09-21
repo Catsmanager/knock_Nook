@@ -6,13 +6,11 @@ function ResultPage() {
   const [loading, setLoading] = useState(true); // 로딩 상태 관리
   const [locationDescription, setLocationDescription] = useState(''); // 간략한 설명 저장
   const [activitySuggestions, setActivitySuggestions] = useState([]); // 활동 추천 저장
-  const location = useLocation(); // 현재 URL 정보를 가져옴
+  const location = useLocation();
 
   useEffect(() => {
-    // URL 파라미터에서 좌표 추출
-    const searchParams = new URLSearchParams(location.search);
-    const lat = parseFloat(searchParams.get('lat'));
-    const lng = parseFloat(searchParams.get('lng'));
+    const lat = location.state.lat;
+    const lng = location.state.lng;
 
     // 좌표 상태 업데이트
     if (!isNaN(lat) && !isNaN(lng)) {

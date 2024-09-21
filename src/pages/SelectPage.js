@@ -3,8 +3,10 @@ import { useNavigate } from 'react-router-dom';
 
 function SelectPage({ setMarkerPosition }) {
   const [map, setMap] = useState(null);
-  const [toggleActive, setToggleActive] = [false, false, false];
-  const [throwAnimation, setThrowAnimation] = false;
+  const [toggleRestaurant, setToggleRestaurant] = useState(false);
+  const [toggleCafe, setToggleCafe] = useState(false);
+  const [toggleEtc, setToggleEtc] = useState(false);
+  const [throwAnimation, setThrowAnimation] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,8 +22,7 @@ function SelectPage({ setMarkerPosition }) {
 
   const throwMarker = () => {
     if (map) {
-      const button = document.getElementById('throw-marker-button');
-      button.classList.add('throw-marker-button-active');
+      setThrowAnimation(true);
 
       const randomLat = 35.8708 + (Math.random() - 0.5) * 0.1;
       const randomLng = 128.5955 + (Math.random() - 0.5) * 0.1;
@@ -37,23 +38,31 @@ function SelectPage({ setMarkerPosition }) {
         map.panTo(markerPosition); // 마커 위치로 지도 중심 이동
       }, 1000);
 
-      // 페이드 아웃 후 1초 뒤에 페이지 이동, 좌표 전달
+      // 애니메이션이 끝나는 시점에 상태를 다시 false로 설정
       setTimeout(() => {
-        navigate(`/result?lat=${randomLat}&lng=${randomLng}`); // URL 파라미터로 좌표 전달
+        setThrowAnimation(false);
+      }, 1000);
+
+      // 페이지 이동
+      setTimeout(() => {
+        navigate('/result', { state: { lat: randomLat, lng: randomLng } });
       }, 3000);
     }
   };
-
-  // 카테고리 토글 버튼 클릭 시
-  const handleCategoryChange = (category) => {};
 
   return (
     <div className="select-background">
       <div className="select-container">
         <div className="select-toggle-container">
-          <button onClick={() => handleCategoryChange('restaurant')}>식당</button>
-          <button onClick={() => handleCategoryChange('cafe')}>카페</button>
-          <button onClick={() => handleCategoryChange('date')}>데이트</button>
+          <button className={`${toggleRestaurant ? 'on' : ''}`} onClick={() => setToggleRestaurant(!toggleRestaurant)}>
+            식당
+          </button>
+          <button className={`${toggleCafe ? 'on' : ''}`} onClick={() => setToggleCafe(!toggleCafe)}>
+            카페
+          </button>
+          <button className={`${toggleEtc ? 'on' : ''}`} onClick={() => setToggleEtc(!toggleEtc)}>
+            기타
+          </button>
         </div>
         <div id="map" className="select-map"></div>
         <button className={`select-marker-btn ${throwAnimation ? 'active' : ''}`} onClick={throwMarker}>
