@@ -4,7 +4,7 @@ import EnterPage from './pages/EnterPage';
 import SelectPage from './pages/SelectPage';
 import ResultPage from './pages/ResultPage';
 import LoginPage from './pages/LoginPage';
-import SignupPage from'./pages/LoginPage'
+import SignupPage from'./pages/SignupPage'
 import './styles/main.scss';
 
 function App() {

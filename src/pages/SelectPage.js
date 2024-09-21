@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/pages/_SelectPage.scss'
 
 function SelectPage({ setMarkerPosition }) {
   const [map, setMap] = useState(null);
-  const [toggleActive, setToggleActive] = [false, false, false];
-  const [throwAnimation, setThrowAnimation] = false;
+  const [toggleActive, setToggleActive] =useState([false, false, false]);
+  const [throwAnimation, setThrowAnimation] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
