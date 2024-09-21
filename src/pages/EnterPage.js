@@ -40,23 +40,20 @@ function EnterPage() {
 
         {/* 들어가기 Button */}
         <button 
-          className="btn btn-primary btn-ghost btn-fill" 
           style={{marginBottom:'20px'}}
           onClick={handleButtonClick}
         >
           들어가기
         </button>
 
-        {/* Login and Signup buttons in horizontal layout */}
         <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
           <button 
-            className="btn btn-primary btn-ghost btn-fill" 
             onClick={handleLoginClick}
           >
             로그인
           </button>
           <button 
-            className="btn btn-primary btn-ghost btn-fill" 
+
             onClick={handleSignupClick}
           >
             회원가입
