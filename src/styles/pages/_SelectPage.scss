@@ -1,68 +1,68 @@
-/* 포스터 스타일 */
-.poster {
-  position: relative;
-  width: 80%;
-  max-width: 600px;
-  height: 80%;
-  max-height: 800px;
-  background-color: #f9f9f9;
-  border: 5px solid #d0d0d0;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  padding: 20px;
+/* 페이지 전체 스타일 */
+.select-background {
+  height: 100vh;
+  background-image: url('../../../public/stone-wall.jpg');
+  background-size: cover;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
 }
 
-.map {
-  width: 600px;
-  height: 500px;
+/* 포스터 스타일 */
+.select-container {
+  width: 80%;
+  max-width: 600px;
+  max-height: 800px;
+  padding: 40px 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
 
+.select-toggle-container {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.select-map {
+  width: 600px;
+  height: 400px;
   background-size: cover;
   background-position: center;
   border-radius: 8px;
-  z-index: 0;
 }
 
 /* 마커 던지기 버튼 스타일 */
-.throw-marker-button {
+.select-marker-btn {
   position: absolute;
   bottom: 20px;
   right: 20px;
   padding: 12px 24px;
   background-color: #ff6b6b;
   color: white;
-  border: none;
-  border-radius: 8px;
   font-size: 16px;
   font-weight: bold;
-  cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  z-index: 1;
   transition: background-color 0.3s ease;
-}
+  cursor: pointer;
+  z-index: 1;
 
-.throw-marker-button:hover {
-  background-color: #ff5252;
-}
+  &:hover {
+    background-color: #ff5252;
+  }
 
-/* 페이지 전체 스타일 */
-.page2 {
-  position: relative;
-  height: 100vh;
-  background-image: url('./../../../public/stone-wall.jpg');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  &.active {
+    animation: throwMarker 1s ease-out forwards;
+  }
 }
 
 /* 마커 던지기 애니메이션 */
-.throw-marker-button-active {
-  animation: throwMarker 1s ease-out forwards;
-}
 
 @keyframes throwMarker {
   0% {
@@ -85,15 +85,6 @@
 }
 
 /* 카테고리 토글 버튼들 - 포스터 내부에서 지도 위에 위치 */
-.category-toggle {
-  position: absolute;
-  top: 10px; /* 포스터 상단에 위치 */
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 15px; /* 버튼 간 간격 */
-  z-index: 1;
-}
 
 /* 기본 버튼 스타일 */
 .category-toggle button {

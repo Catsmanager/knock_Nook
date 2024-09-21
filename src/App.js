@@ -13,11 +13,11 @@ function App() {
       <Routes>
         <Route path="/" element={<EnterPage />} />
         <Route
-          path="/page2"
+          path="/select"
           element={<SelectPage setMarkerPosition={setMarkerPosition} />} // Page2에서 좌표 설정
         />
         <Route
-          path="/page3"
+          path="/result"
           element={<ResultPage markerPosition={markerPosition} />} // Page3에 좌표 전달
         />
       </Routes>

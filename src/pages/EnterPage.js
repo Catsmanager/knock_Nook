@@ -10,7 +10,7 @@ function EnterPage() {
     setStartWalking(true);
 
     setTimeout(() => {
-      navigate('/page2');
+      navigate('/select');
     }, 1000);
   };
 
