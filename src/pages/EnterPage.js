@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Container, Text } from 'retro-react';
+import { Container } from 'retro-react'; // Removed Button from here
+import '../styles/pages/_Enterpage.scss'
 
 function EnterPage() {
   const navigate = useNavigate();
@@ -8,10 +9,17 @@ function EnterPage() {
 
   const handleButtonClick = () => {
     setStartWalking(true);
-
     setTimeout(() => {
       navigate('/select');
     }, 1000);
+  };
+
+  const handleLoginClick = () => {
+    navigate('/login'); // Example: Navigating to login page
+  };
+
+  const handleSignupClick = () => {
+    navigate('/signup'); // Example: Navigating to signup page
   };
 
   return (
@@ -22,13 +30,43 @@ function EnterPage() {
       </video>
 
       <Container className="content">
-        <Text variant="h1">로고넣기</Text>
-        <Button onClick={handleButtonClick} sx={{ opacity: 0.7, border: 'none' }}>
+        {/* Logo image */}
+        <img 
+          src={`${process.env.PUBLIC_URL}/logo.png`} 
+          alt="Logo" 
+          className="logo" 
+          style={{ width: '400px', marginBottom: '40px' }} 
+        />
+
+        {/* 들어가기 Button */}
+        <button 
+          className="btn btn-primary btn-ghost btn-fill" 
+          style={{marginBottom:'20px'}}
+          onClick={handleButtonClick}
+        >
           들어가기
-        </Button>
+        </button>
+
+        {/* Login and Signup buttons in horizontal layout */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
+          <button 
+            className="btn btn-primary btn-ghost btn-fill" 
+            onClick={handleLoginClick}
+          >
+            로그인
+          </button>
+          <button 
+            className="btn btn-primary btn-ghost btn-fill" 
+            onClick={handleSignupClick}
+          >
+            회원가입
+          </button>
+        </div>
       </Container>
     </div>
   );
 }
 
 export default EnterPage;
+
+

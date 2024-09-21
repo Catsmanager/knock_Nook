@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 /* 영상 배경 */
 .video-background {
   position: fixed;
@@ -38,7 +42,7 @@ button {
   padding: 10px 20px;
   font-family: 'Press Start 2P', cursive;
   background-color: none;
-  color: rgb(0, 0, 0);
+  color: white;
   border: none;
   border-radius: 5px;
   font-size: 18px;
@@ -49,13 +53,7 @@ button {
 
 button:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 20px rgb(255, 255, 255), 0 0 40px rgba(231, 231, 231, 0.8);
-}
-
-.auth-buttons{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+  box-shadow: 0 0 20px rgba(255, 0, 102, 1), 0 0 40px rgba(255, 0, 102, 0.8);
 }
 
 /* 컨텐츠의 줌인과 페이드아웃 효과 */
