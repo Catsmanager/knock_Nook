@@ -15,6 +15,9 @@ public class UserService {
 
     //회원가입 로직
     public Long save(AddUserRequest dto) {
+        if (userRepository.existsByEmail(dto.getEmail())) {
+            throw new IllegalStateException("User Already Exists");
+        }
         return userRepository.save(User.builder()
                 .name(dto.getName())
                 .email(dto.getEmail())

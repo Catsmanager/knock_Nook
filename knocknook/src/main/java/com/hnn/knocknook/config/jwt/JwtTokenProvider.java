@@ -2,7 +2,6 @@ package com.hnn.knocknook.config.jwt;
 
 import com.hnn.knocknook.entity.User;
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import lombok.RequiredArgsConstructor;
