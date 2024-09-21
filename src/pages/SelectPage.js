@@ -75,9 +75,9 @@ function SelectPage({ setMarkerPosition }) {
         </div>
         <div id="map" className="select-map"></div>
         <button className={`select-marker-btn ${throwAnimation ? 'active' : ''}`} onClick={map ? throwMarker : null}>
-  <img src={`${process.env.PUBLIC_URL}/marker-icon.png`} alt="Marker Icon" />
-  마커 던지기
-</button>
+      <img src={`${process.env.PUBLIC_URL}/marker-icon.png`} alt="Marker Icon" />
+      마커 던지기
+      </button>
       </div>
     </div>
   );

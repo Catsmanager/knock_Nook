@@ -8,7 +8,7 @@ function EnterPage() {
   const navigate = useNavigate();
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
-  const navigate = useNavigate();
+
 
   const handleLoginClick = () => {
     setIsLoginModalOpen(true);
