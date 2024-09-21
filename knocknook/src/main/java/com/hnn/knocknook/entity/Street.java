@@ -19,4 +19,7 @@ public class Street {
 
     @Column(name = "detail", nullable = false)
     private String detail;
+
+    @Column(name = "picture", nullable = false)
+    private String picture;
 }
