@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/pages/_Enterpage.scss';
 import LoginPage from './LoginPage'; // 로그인 페이지 모달
 import SignupPage from './SignupPage'; // 회원가입 페이지 모달
-import { useNavigate } from 'react-router-dom';
 
 function EnterPage() {
-  const navigate = useNavigate();
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
 
@@ -19,7 +18,7 @@ function EnterPage() {
   };
 
   const handleEnterClick = () => {
-    navigate('/select');  // '/select' 경로로 이동
+    navigate('/select'); // '/select' 경로로 이동
   };
 
   const closeModal = () => {
