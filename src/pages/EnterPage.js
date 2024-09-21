@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container } from 'retro-react'; // Removed Button from here
-import '../styles/pages/_Enterpage.scss'
+import '../styles/pages/_Enterpage.scss';
 
 function EnterPage() {
   const navigate = useNavigate();
@@ -31,33 +31,21 @@ function EnterPage() {
 
       <Container className="content">
         {/* Logo image */}
-        <img 
-          src={`${process.env.PUBLIC_URL}/logo.png`} 
-          alt="Logo" 
-          className="logo" 
-          style={{ width: '400px', marginBottom: '40px' }} 
+        <img
+          src={`${process.env.PUBLIC_URL}/logo.png`}
+          alt="Logo"
+          className="logo"
+          style={{ width: '400px', marginBottom: '40px' }}
         />
 
         {/* 들어가기 Button */}
-        <button 
-          style={{marginBottom:'20px'}}
-          onClick={handleButtonClick}
-        >
+        <button style={{ marginBottom: '20px' }} onClick={handleButtonClick}>
           들어가기
         </button>
 
         <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
-          <button 
-            onClick={handleLoginClick}
-          >
-            로그인
-          </button>
-          <button 
-
-            onClick={handleSignupClick}
-          >
-            회원가입
-          </button>
+          <button onClick={handleLoginClick}>로그인</button>
+          <button onClick={handleSignupClick}>회원가입</button>
         </div>
       </Container>
     </div>
@@ -65,5 +53,3 @@ function EnterPage() {
 }
 
 export default EnterPage;
-
-

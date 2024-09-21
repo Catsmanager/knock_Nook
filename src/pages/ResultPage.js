@@ -7,10 +7,11 @@ const ResultPage = () => {
   const location = useLocation();
   const data = location.state;
 
-  const street = data.street;
-  const restaurant = data.restaurant;
-  const cafe = data.cafe;
-  const etc = data.etc;
+  console.log(data);
+  const street = data.response.street;
+  const restaurant = data.response.restaurant;
+  const cafe = data.response.cafe;
+  const etc = data.response.etc;
 
   useEffect(() => {
     const lat = data.lat;

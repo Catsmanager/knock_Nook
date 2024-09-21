@@ -38,20 +38,19 @@ function SelectPage({ setMarkerPosition }) {
           throw new Error('Network response was not ok ' + response.statusText);
         }
 
-        // 1초 후 마커를 지도에 추가
+        const streetData = await response.json();
+
         setTimeout(() => {
           marker.setMap(map); // 마커를 지도에 표시
           map.panTo(markerPosition); // 마커 위치로 지도 중심 이동
         }, 1000);
 
-        // 애니메이션이 끝나는 시점에 상태를 다시 false로 설정
         setTimeout(() => {
           setThrowAnimation(false);
         }, 1000);
 
-        // 페이지 이동
         setTimeout(() => {
-          navigate('/result', { state: { lat: randomLat, lng: randomLng, street: response.json() } });
+          navigate('/result', { state: { lat: randomLat, lng: randomLng, response: streetData } });
         }, 3000);
       })
       .catch((error) => {
