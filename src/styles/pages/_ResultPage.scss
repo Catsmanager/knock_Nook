@@ -13,7 +13,7 @@
 .result-container {
   width: calc(60vw - 40px);
   height: calc(90vh - 40px);
-  background-color: whitesmoke;
+  background-color: rgb(237, 236, 236);
   border-radius: 40px;
   display: flex;
   flex-direction: column;
@@ -21,18 +21,6 @@
   align-items: center;
   overflow-y: auto;
   overflow-x: hidden;
-}
-
-.result-nook {
-  position: relative;
-  width: calc(100% - 40px);
-  height: calc(40% - 80px);
-  padding: 40px 20px;
-  background-image: url('../../../public/stone-wall.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 1;
 }
 
 .result-nook::before {
@@ -48,25 +36,13 @@
 
 .result-nook {
   position: relative;
-  width: calc(100% - 40px);
-  height: calc(35% - 80px);
-  padding: 40px 20px;
-  background-image: url('../../../public/stone-wall.jpg');
+  width: calc(100% - 80px);
+  padding: 60px 40px 40px 40px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: 1; /* 컨텐츠 위에 표시될 오버레이를 위해 필요 */
-}
-
-.result-nook::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 2;
+  z-index: 1;
+  height: auto;
 }
 
 .result-nook * {
@@ -83,6 +59,7 @@
 
 .result-nook-desc {
   color: white;
+  line-height: 1.5;
 }
 
 .result-component-wrap {
@@ -91,8 +68,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  gap: 20px;
+  padding: 40px 20px;
+  gap: 40px;
 }
 
 .result-component {
@@ -100,16 +77,19 @@
   min-height: 200px;
   border-radius: 24px;
 
-  background-color: grey;
+  background-color: #f8f8f8;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   overflow: hidden;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .result-component-image {
   width: 40%;
   height: 100%;
+  object-fit: cover;
 }
 
 .result-component-text {
@@ -118,5 +98,29 @@
   justify-content: center;
   align-items: flex-start;
   padding: 20px;
-  gap: 20px;
+}
+
+.result-component-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.result-component-desc {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #666;
+}
+
+.result-component-addr {
+  font-size: 14px;
+  margin-bottom: 12px;
+  color: #888;
+}
+
+.result-component-liked {
+  font-size: 14px;
+  color: #ff6b6b; /* 좋아요 표시를 강조하기 위해 밝은 색상 사용 */
+  font-weight: bold;
 }
