@@ -1,18 +1,20 @@
-# <흠냐냥(HNN)> - <Knock, Nook>
-![image](https://github.com/user-attachments/assets/e51bb9fc-47e2-4b6c-97e6-ac12fed00529)
+# <흠냐냥>- _**<KNOCK, NOOK>**_
 
 ## 서비스 요약
-Knock, Nook - 대구 곳곳의 갈 만한 골목과 장소를 무작위로 추천해주는 서비스
+대구 곳곳의 갈 만한 골목과 장소를 무작위로 추천해주는 서비스
 
 ## 주제 구분
--	C타입 대구 지역 상권을 살리는데 도움을 주는 서비스 
+C타입 대구 지역 상권을 살리는데 도움을 주는 서비스 
 
 ## 팀원 소개
-팀명과 팀원 소개
-- 배승빈
-- 전윤철
-- 전하운
-- 진현지
+
+Frontend
+- 🍐 배승빈 : GOAT
+- 🧯 진현지 : 멋져박수
+
+Backend
+- 🚃 전윤철 : 백엔드 독박
+- 🔮 전하운 : 기타잡무
 
 ## 시연 영상
 (필수) Youtube 링크
@@ -20,7 +22,9 @@ Knock, Nook - 대구 곳곳의 갈 만한 골목과 장소를 무작위로 추�
 
 ## 서비스 소개
 ### 서비스 개요
-Knock는 두드리다, Nook은 아늑한 구석이라는 뜻을 가지고 있다.
+![image](https://github.com/user-attachments/assets/e51bb9fc-47e2-4b6c-97e6-ac12fed00529)
+
+ Knock는 두드리다, Nook은 아늑한 구석이라는 뜻을 가지고 있다.
 여러 골목을 두드려보며 아늑한 나만의 플레이스를 갖는 것이다.
 최근에 유행한 지도에 마커 던져서 무작위 여행하기 컨텐츠에서 영감을 받았다.
 노크누크는 대구 곳곳의 골목과 장소를 기반으로 한 DB를 통해 무작위로 갈 만한 곳을 추천해준다.
@@ -37,6 +41,8 @@ Knock는 두드리다, Nook은 아늑한 구석이라는 뜻을 가지고 있다
 유명하고 평점이 좋은 곳뿐 아니라 잘 알려지지 않은 가게도 공평하게 노출이 된다.
 
 ### 구현 내용 및 결과물
+1. 
+
 서비스의 실제 구현 내용과 결과물을 기재한다.
 
 ex)
@@ -46,11 +52,21 @@ ex)
 2. 탁구 용품 구매 페이지
 
 ### 구현 방식
-백엔드: 자바, 스프링, 마리아디비
-프론트: 리액트, HTML, CSS, JS, SAAS
+- Frontend : 
+![js](https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white) ,
+![js](https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white) ,
+![js](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white) ,
+![js](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 
+- Backend : 
+![js](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white) , 
+![js](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white) ,
+![js](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white)
+</br></br>
 어떤 언어와 프레임워크를 사용했는지, 만약 배포를 진행했다면 환경은 어떤지 등을 기재
 ex) 프론트엔드로는 TypeScript와 React를 사용, 백엔드로는 Java와 Spring을 사용. AWS를 통해 배포를 진행
 
 ## 향후 개선 혹은 발전 방안
 현재 개발된 서비스에서 향후 개선되거나 발전될 수 있는 부분에 대한 설명
+
+![image](https://github.com/user-attachments/assets/3d02dafc-bc81-44a5-a5bb-cf50405b1dac)
