@@ -6,9 +6,35 @@ function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    console.log('Logging in with', email, password);
-    // Add actual login logic here
+  const handleLogin = async () => {
+    const url = 'http://172.20.10.3:8080/login';
+
+    const data = {
+      email: 'test@123.com',
+      password: '4321',
+    };
+
+    try {
+      console.log('시작');
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      console.log('종료');
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const result = await response.json();
+      console.log(result);
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+    }
+    console.log('login in with', email, password);
   };
 
   return (

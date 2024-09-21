@@ -7,13 +7,36 @@ function SignupPage() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleSignUp = () => {
-    if (password !== confirmPassword) {
-      alert('Passwords do not match!');
-      return;
+  const handleSignUp = async () => {
+    const url = 'http://172.20.10.3:8080/signup';
+
+    const data = {
+      name: '김김김',
+      email: 'test@123.com',
+      password: '4321',
+    };
+
+    try {
+      console.log('시작');
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      console.log('종료');
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const result = await response.json();
+      console.log(result);
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
     }
-    console.log('Signing up with', email, password);
-    // Add actual sign-up logic here
+    console.log('Sign in with', email, password);
   };
 
   return (
@@ -47,4 +70,3 @@ function SignupPage() {
 }
 
 export default SignupPage;
-
