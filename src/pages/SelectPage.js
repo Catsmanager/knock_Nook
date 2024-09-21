@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Page2.css';
-import stoneWall from './images/stone-wall.jpg'; 
+import stoneWall from './images/stone-wall.jpg';
 
-function Page2({ setMarkerPosition }) {
+function SelectPage({ setMarkerPosition }) {
   const [fadeOut, setFadeOut] = useState(false);
   const [activeCategory, setActiveCategory] = useState(''); // 선택된 카테고리 상태
   const [map, setMap] = useState(null);
@@ -22,7 +22,7 @@ function Page2({ setMarkerPosition }) {
     setMap(mapInstance);
 
     return () => {
-      markers.forEach((marker) => marker.setMap(null)); 
+      markers.forEach((marker) => marker.setMap(null));
     };
   }, [markers]);
 
@@ -110,16 +110,10 @@ function Page2({ setMarkerPosition }) {
           >
             식당
           </button>
-          <button
-            className={activeCategory === 'cafe' ? 'active' : ''}
-            onClick={() => handleCategoryChange('cafe')}
-          >
+          <button className={activeCategory === 'cafe' ? 'active' : ''} onClick={() => handleCategoryChange('cafe')}>
             카페
           </button>
-          <button
-            className={activeCategory === 'date' ? 'active' : ''}
-            onClick={() => handleCategoryChange('date')}
-          >
+          <button className={activeCategory === 'date' ? 'active' : ''} onClick={() => handleCategoryChange('date')}>
             데이트
           </button>
         </div>
@@ -136,5 +130,4 @@ function Page2({ setMarkerPosition }) {
   );
 }
 
-export default Page2;
-
+export default SelectPage;

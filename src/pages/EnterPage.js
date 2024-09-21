@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Container, Text } from 'retro-react';
-import './App.css';
+import './../App.css';
 
-function HomePage() {
+function EnterPage() {
   const navigate = useNavigate();
   const [startWalking, setStartWalking] = useState(false);
 
   const handleButtonClick = () => {
-    setStartWalking(true); 
+    setStartWalking(true);
 
-   
     setTimeout(() => {
       navigate('/page2');
     }, 1000);
@@ -18,7 +17,6 @@ function HomePage() {
 
   return (
     <div className={`App ${startWalking ? 'walking' : ''}`}>
-
       <video autoPlay loop muted className="video-background">
         <source src={`${process.env.PUBLIC_URL}/background.mp4`} type="video/mp4" />
         지원하지 않는 웹입니다.
@@ -34,4 +32,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default EnterPage;
