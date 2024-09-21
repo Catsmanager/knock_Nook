@@ -31,7 +31,7 @@ function SelectPage({ setMarkerPosition }) {
 
     setMarkerPosition({ lat: randomLat, lng: randomLng });
 
-    fetch('http://172.20.10.3:8080/street?restaurant=true&cafe=true&etc=true')
+    fetch(`http://172.20.10.3:8080/street?restaurant=${toggleRestaurant}&cafe=${toggleCafe}&etc=${toggleEtc}`)
       .then(async (response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok ' + response.statusText);
@@ -56,12 +56,16 @@ function SelectPage({ setMarkerPosition }) {
               lat: randomLat,
               lng: randomLng,
               response: streetData,
+              toggleRestaurant: toggleRestaurant,
+              toggleCafe: toggleCafe,
+              toggleEtc: toggleEtc,
             },
           });
         }, 3000);
       })
       .catch((error) => {
         console.log('Fetch Error: ', error);
+        alert(error);
       });
   };
 
@@ -81,7 +85,11 @@ function SelectPage({ setMarkerPosition }) {
         </div>
         <div id="map" className="select-map"></div>
         <button className={`select-marker-btn ${throwAnimation ? 'active' : ''}`} onClick={map ? throwMarker : null}>
-          <img src={`${process.env.PUBLIC_URL}/marker-icon.png`} alt="Marker Icon" />
+          <img
+            src={`${process.env.PUBLIC_URL}/marker-icon.png`}
+            alt="Marker Icon"
+            style={{ display: `${throwAnimation ? 'block' : 'none'}` }}
+          />
           마커 던지기
         </button>
       </div>
