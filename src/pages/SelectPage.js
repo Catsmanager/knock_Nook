@@ -21,33 +21,42 @@ function SelectPage({ setMarkerPosition }) {
   }, []);
 
   const throwMarker = () => {
-    if (map) {
-      setThrowAnimation(true);
+    setThrowAnimation(true);
 
-      const randomLat = 35.8708 + (Math.random() - 0.5) * 0.1;
-      const randomLng = 128.5955 + (Math.random() - 0.5) * 0.1;
-      const markerPosition = new window.kakao.maps.LatLng(randomLat, randomLng);
-      const marker = new window.kakao.maps.Marker({
-        position: markerPosition,
+    const randomLat = 35.8708 + (Math.random() - 0.5) * 0.1;
+    const randomLng = 128.5955 + (Math.random() - 0.5) * 0.1;
+    const markerPosition = new window.kakao.maps.LatLng(randomLat, randomLng);
+    const marker = new window.kakao.maps.Marker({
+      position: markerPosition,
+    });
+
+    setMarkerPosition({ lat: randomLat, lng: randomLng });
+
+    fetch('http://172.30.1.43:8080/street?one=true&two=true&three=true')
+      .then(async (response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok ' + response.statusText);
+        }
+
+        // 1초 후 마커를 지도에 추가
+        setTimeout(() => {
+          marker.setMap(map); // 마커를 지도에 표시
+          map.panTo(markerPosition); // 마커 위치로 지도 중심 이동
+        }, 1000);
+
+        // 애니메이션이 끝나는 시점에 상태를 다시 false로 설정
+        setTimeout(() => {
+          setThrowAnimation(false);
+        }, 1000);
+
+        // 페이지 이동
+        setTimeout(() => {
+          navigate('/result', { state: { lat: randomLat, lng: randomLng, street: response.json() } });
+        }, 3000);
+      })
+      .catch((error) => {
+        console.log('Fetch Error: ', error);
       });
-      setMarkerPosition({ lat: randomLat, lng: randomLng });
-
-      // 1초 후 마커를 지도에 추가
-      setTimeout(() => {
-        marker.setMap(map); // 마커를 지도에 표시
-        map.panTo(markerPosition); // 마커 위치로 지도 중심 이동
-      }, 1000);
-
-      // 애니메이션이 끝나는 시점에 상태를 다시 false로 설정
-      setTimeout(() => {
-        setThrowAnimation(false);
-      }, 1000);
-
-      // 페이지 이동
-      setTimeout(() => {
-        navigate('/result', { state: { lat: randomLat, lng: randomLng } });
-      }, 3000);
-    }
   };
 
   return (
@@ -65,7 +74,7 @@ function SelectPage({ setMarkerPosition }) {
           </button>
         </div>
         <div id="map" className="select-map"></div>
-        <button className={`select-marker-btn ${throwAnimation ? 'active' : ''}`} onClick={throwMarker}>
+        <button className={`select-marker-btn ${throwAnimation ? 'active' : ''}`} onClick={map ? throwMarker : null}>
           마커 던지기
         </button>
       </div>
