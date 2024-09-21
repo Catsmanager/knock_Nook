@@ -22,26 +22,26 @@ public class InTheStreetService {
 
     public Result getResult(boolean one, boolean two, boolean three) {
         Random random = new Random();
-        int a =  random.nextInt((int) streetRepository.count()) + 1;
+        int randomStreetId =  random.nextInt((int) streetRepository.count()) + 1;
 
-        Optional<Street> street = streetRepository.findById(a);
+        Optional<Street> street = streetRepository.findById(randomStreetId);
 
         Optional<InTheStreet> cafe;
         Optional<InTheStreet> restaurant;
         Optional<InTheStreet> etc;
 
         if (one) {
-            cafe = inTheStreetRepository.findCafeById(a);
+            cafe = inTheStreetRepository.findCafeById(randomStreetId);
         } else {
             cafe = null;
         }
         if (two) {
-            restaurant = inTheStreetRepository.findRestaurantById(a);
+            restaurant = inTheStreetRepository.findRestaurantById(randomStreetId);
         } else {
             restaurant = null;
         }
         if (three) {
-            etc = inTheStreetRepository.findEtcById(a);
+            etc = inTheStreetRepository.findEtcById(randomStreetId);
         } else {
             etc = null;
         }

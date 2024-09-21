@@ -14,8 +14,9 @@ public class InTheStreetController {
 
     @GetMapping("/street")
     @CrossOrigin(origins = "http://localhost:3000")
-    public Result getMyResult(@RequestParam(name="one") boolean one, @RequestParam(name = "two") boolean two,
-                              @RequestParam(name = "three") boolean three) {
-        return inTheStreetService.getResult(one, two, three);
+    public Result getMyResult(@RequestParam(name="cafe") boolean cafe,
+                              @RequestParam(name = "restaurant") boolean restaurant,
+                              @RequestParam(name = "etc") boolean etc) {
+        return inTheStreetService.getResult(cafe, restaurant, etc);
     }
 }
