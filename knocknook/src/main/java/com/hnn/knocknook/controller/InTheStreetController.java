@@ -22,6 +22,7 @@ public class InTheStreetController {
         return inTheStreetService.getResult(cafe, restaurant, etc);
     }
 
+    //좋아요 누르면 1씩 올라가는 기능
     @PutMapping("/{id}/like")
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<Void> likeStreet(@PathVariable Long id) {
