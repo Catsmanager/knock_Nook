@@ -16,7 +16,6 @@ function SelectPage({ setMarkerPosition }) {
       level: 7,
     };
     const mapInstance = new window.kakao.maps.Map(container, options);
-
     setMap(mapInstance);
   }, []);
 
@@ -39,19 +38,26 @@ function SelectPage({ setMarkerPosition }) {
         }
 
         const streetData = await response.json();
+        console.log(streetData); // 데이터가 잘 들어오는지 확인
 
         setTimeout(() => {
           marker.setMap(map); // 마커를 지도에 표시
-          map.panTo(markerPosition); // 마커 위치로 지도 중심 이동
+          map.panTo(markerPosition); // 지도 중심을 마커 위치로 이동
         }, 1000);
 
         setTimeout(() => {
           setThrowAnimation(false);
         }, 1000);
 
+        // 데이터를 받아온 후 결과 페이지로 네비게이트
         setTimeout(() => {
-          console.log(streetData);
-          // navigate('/result', { state: { lat: randomLat, lng: randomLng, response: streetData } });
+          navigate('/result', {
+            state: {
+              lat: randomLat,
+              lng: randomLng,
+              response: streetData,
+            },
+          });
         }, 3000);
       })
       .catch((error) => {
