@@ -1,0 +1,134 @@
+/* 포스터 스타일 */
+.poster {
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+  height: 80%;
+  max-height: 800px;
+  background-color: #f9f9f9; 
+  border: 5px solid #d0d0d0; 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px; 
+}
+
+
+.map {
+  width: 600px;
+  height: 500px;
+
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px; 
+  z-index: 0;
+}
+
+/* 마커 던지기 버튼 스타일 */
+.throw-marker-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 24px;
+  background-color: #ff6b6b; 
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  z-index: 1;
+  transition: background-color 0.3s ease; 
+}
+
+.throw-marker-button:hover {
+  background-color: #ff5252; 
+}
+
+/* 페이지 전체 스타일 */
+.page2 {
+  position: relative;
+  height: 100vh;
+  background-image: url('./images/stone-wall.jpg'); 
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 마커 던지기 애니메이션 */
+.throw-marker-button-active {
+  animation: throwMarker 1s ease-out forwards;
+}
+
+@keyframes throwMarker {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-100px, -100px) scale(1.2); 
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-300px, -300px) scale(0.5); 
+    opacity: 0;
+  }
+}
+
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+
+/* 카테고리 토글 버튼들 - 포스터 내부에서 지도 위에 위치 */
+.category-toggle {
+  position: absolute;
+  top: 10px; /* 포스터 상단에 위치 */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px; /* 버튼 간 간격 */
+  z-index: 1;
+}
+
+/* 기본 버튼 스타일 */
+.category-toggle button {
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 25px; /* 버튼을 둥글게 처리 */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  transition: all 0.3s ease; /* 부드러운 전환 효과 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 약간의 그림자 */
+  letter-spacing: 1px;
+}
+
+/* 버튼에 마우스를 올렸을 때 */
+.category-toggle button:hover {
+  background-color: #007bff; /* 모던한 파란색으로 변경 */
+  color: white;
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.4); /* 좀 더 강조된 그림자 */
+}
+
+/* 선택된(active) 카테고리 버튼 */
+.category-toggle button.active {
+  background-color: #007bff;
+  color: white;
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.6);
+  transform: scale(1.05); /* 선택된 버튼은 살짝 더 커지게 */
+}
+
+/* 버튼 클릭 효과 */
+.category-toggle button:active {
+  transform: scale(0.95); /* 클릭 시 살짝 작아지며 클릭 효과 */
+}

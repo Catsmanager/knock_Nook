@@ -1,0 +1,87 @@
+/* 영상 배경 */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  transition: transform 1s ease, opacity 1s ease; /* 영상 줌인 및 페이드아웃 효과 */
+}
+
+/* 기본 페이지 레이아웃 */
+.App {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 1s ease, opacity 1s ease;
+  opacity: 1;
+}
+
+/* 콘텐츠 중앙에 배치 */
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 버튼 스타일 */
+button {
+  padding: 10px 20px;
+  font-family: 'Press Start 2P', cursive;
+  background-color: none;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 0, 102, 1), 0 0 40px rgba(255, 0, 102, 0.8);
+}
+
+/* 컨텐츠의 줌인과 페이드아웃 효과 */
+.walking .content {
+  animation: zoomFadeOut 1s forwards;
+}
+
+/* 배경 영상의 줌인과 페이드아웃 효과 */
+.walking .video-background {
+  animation: zoomFadeOutVideo 1s forwards;
+}
+
+/* 컨텐츠 페이드 아웃 애니메이션 */
+@keyframes zoomFadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+/* 배경 영상 줌인과 페이드아웃 애니메이션 */
+@keyframes zoomFadeOutVideo {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5); /* 배경 영상도 살짝 줌인 */
+  }
+}

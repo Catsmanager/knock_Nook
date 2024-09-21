@@ -1,0 +1,124 @@
+.page3 {
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.poster {
+  width: 100%;
+  max-width: 600px;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 포스터 안의 요소 중앙 정렬 */
+}
+
+.poster:hover {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.description-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.description-box,
+.description-summary {
+  width: 100%;
+  max-width: 500px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 5px solid #00aaff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.description-box:hover,
+.description-summary:hover {
+  transform: translateY(-5px);
+}
+
+.description-summary {
+  background-color: #eef6ff;
+  padding: 25px;
+  border-left: 5px solid #0066cc;
+  margin-bottom: 20px;
+}
+
+.description-summary h3 {
+  margin-bottom: 12px;
+  color: #0066cc;
+  font-weight: 600;
+}
+
+.description-summary p {
+  color: #333;
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.map {
+  width: 100%;
+  height: 350px;
+  margin-top: 30px;
+  border-radius: 10px;
+  background-color: #eaeaea;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.description-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.description-box .hidden-details {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.description-box:hover .hidden-details {
+  display: block;
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .poster {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .description-box,
+  .description-summary {
+    padding: 15px;
+  }
+
+  .map {
+    height: 300px;
+  }
+}
