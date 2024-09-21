@@ -1,21 +1,26 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import { useNavigate } from 'react-router-dom';
 import { Container } from 'retro-react';
+=======
+>>>>>>> 07218175bb1a3f9f25f49a750a3648d2ffa8b41f
 import '../styles/pages/_Enterpage.scss';
 import LoginPage from './LoginPage'; // 로그인 페이지 모달
 import SignupPage from './SignupPage'; // 회원가입 페이지 모달
+import { useNavigate } from 'react-router-dom';
 
 function EnterPage() {
+  const navigate = useNavigate();
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleLoginClick = () => {
-    setIsLoginModalOpen(true); // 로그인 모달 열기
+    setIsLoginModalOpen(true);
   };
 
   const handleSignupClick = () => {
-    setIsSignupModalOpen(true); // 회원가입 모달 열기
+    setIsSignupModalOpen(true);
   };
 
   const handleEnterClick = () => {
@@ -28,13 +33,13 @@ function EnterPage() {
   };
 
   return (
-    <div className="App">
+    <div className="enter-frame">
       <video autoPlay loop muted className="video-background">
         <source src={`${process.env.PUBLIC_URL}/background.mp4`} type="video/mp4" />
         지원하지 않는 웹입니다.
       </video>
 
-      <Container className="content">
+      <div className="enter-container">
         <img
           src={`${process.env.PUBLIC_URL}/logo.png`}
           alt="Logo"
@@ -42,15 +47,27 @@ function EnterPage() {
           style={{ width: '400px', marginBottom: '40px' }}
         />
 
+<<<<<<< HEAD
    <button style={{ marginBottom: '20px' }} onClick={handleEnterClick}>
           들어가기
         </button>
+=======
+        <div className="enter-btn-group">
+          <button className="enter-btn" onClick={() => navigate('/select')}>
+            들어가기
+          </button>
+>>>>>>> 07218175bb1a3f9f25f49a750a3648d2ffa8b41f
 
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
-          <button onClick={handleLoginClick}>로그인</button>
-          <button onClick={handleSignupClick}>회원가입</button>
+          <div className="auth-btn-group">
+            <button className="auth-btn" onClick={handleLoginClick}>
+              로그인
+            </button>
+            <button className="auth-btn" onClick={handleSignupClick}>
+              회원가입
+            </button>
+          </div>
         </div>
-      </Container>
+      </div>
 
       {/* 로그인 모달 */}
       {isLoginModalOpen && (
@@ -74,4 +91,3 @@ function EnterPage() {
 }
 
 export default EnterPage;
-

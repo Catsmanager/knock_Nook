@@ -1,12 +1,15 @@
-@use './pages/EnterPage.scss';
-@use './pages/SelectPage.scss';
-@use './pages/ResultPage.scss';
+@use './pages/_EnterPage.scss';
+@use './pages/_SelectPage.scss';
+@use './pages/_ResultPage.scss';
+@use './pages/_LoginPage.scss';
+@use './pages/_SignupPage.scss';
 
 body {
   margin: 0;
   font-family: 'Nanum Gothic', sans-serif;
 }
 
+<<<<<<< HEAD
 /* 기본 페이지 레이아웃 */
 .App {
   position: relative;
@@ -30,6 +33,8 @@ body {
   align-items: center;
 }
 
+=======
+>>>>>>> 07218175bb1a3f9f25f49a750a3648d2ffa8b41f
 /* 버튼 스타일 */
 button {
   padding: 10px 20px;
@@ -45,14 +50,16 @@ button {
 
   &:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 4px rgb(255, 255, 255), 0 0 8px rgb(255, 255, 255);
+    box-shadow: 0 0 4px #a13d3f, 0 0 8px #a13d3f;
   }
 
   &.on {
+<<<<<<< HEAD
     color: rgb(0, 0, 0);
     border: 1px solid rgb(0, 0, 0);
+=======
+    color: #a13d3f;
+    border: 1px solid #a13d3f;
+>>>>>>> 07218175bb1a3f9f25f49a750a3648d2ffa8b41f
   }
 }
-
-
-
