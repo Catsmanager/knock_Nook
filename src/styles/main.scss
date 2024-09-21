@@ -6,17 +6,6 @@ body {
   margin: 0;
 }
 
-/* 영상 배경 */
-.video-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  transition: transform 1s ease, opacity 1s ease; /* 영상 줌인 및 페이드아웃 효과 */
-}
 
 /* 기본 페이지 레이아웃 */
 .App {
@@ -65,36 +54,5 @@ button {
   }
 }
 
-/* 컨텐츠의 줌인과 페이드아웃 효과 */
-.walking .content {
-  animation: zoomFadeOut 1s forwards;
-}
 
-/* 배경 영상의 줌인과 페이드아웃 효과 */
-.walking .video-background {
-  animation: zoomFadeOutVideo 1s forwards;
-}
 
-/* 컨텐츠 페이드 아웃 애니메이션 */
-@keyframes zoomFadeOut {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(2);
-  }
-}
-
-/* 배경 영상 줌인과 페이드아웃 애니메이션 */
-@keyframes zoomFadeOutVideo {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.5); /* 배경 영상도 살짝 줌인 */
-  }
-}
