@@ -49,5 +49,7 @@ public class InTheStreetService {
         return new Result(street, cafe, restaurant, etc);
     }
 
-
+    public void likeStreet(Long id) {
+        inTheStreetRepository.incrementLiked(id);
+    }
 }

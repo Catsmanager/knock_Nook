@@ -13,7 +13,6 @@ public class InTheStreet {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonIgnore
     private Long id;
 
     @Column(name = "streetId")

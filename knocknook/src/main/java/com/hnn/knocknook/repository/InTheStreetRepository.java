@@ -1,7 +1,9 @@
 package com.hnn.knocknook.repository;
 
 import com.hnn.knocknook.entity.InTheStreet;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -21,4 +23,9 @@ public interface InTheStreetRepository extends JpaRepository<InTheStreet, Long> 
     @Query(value = "SELECT * FROM InTheStreet WHERE street_id = ?1 AND kindof = '기타' ORDER BY RAND() LIMIT 1",
             nativeQuery = true)
     Optional<InTheStreet> findEtcById(int id);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE InTheStreet i SET i.liked = i.liked + 1 WHERE i.id = ?1")
+    void incrementLiked(Long id);
 }
