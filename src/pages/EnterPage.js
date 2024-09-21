@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Container } from 'retro-react';
 import '../styles/pages/_Enterpage.scss';
 import LoginPage from './LoginPage'; // 로그인 페이지 모달
@@ -7,6 +8,7 @@ import SignupPage from './SignupPage'; // 회원가입 페이지 모달
 function EnterPage() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleLoginClick = () => {
     setIsLoginModalOpen(true); // 로그인 모달 열기
@@ -14,6 +16,10 @@ function EnterPage() {
 
   const handleSignupClick = () => {
     setIsSignupModalOpen(true); // 회원가입 모달 열기
+  };
+
+  const handleEnterClick = () => {
+    navigate('/select');  // '/select' 경로로 이동
   };
 
   const closeModal = () => {
@@ -36,7 +42,7 @@ function EnterPage() {
           style={{ width: '400px', marginBottom: '40px' }}
         />
 
-        <button style={{ marginBottom: '20px' }} onClick={() => alert('Entering')}>
+   <button style={{ marginBottom: '20px' }} onClick={handleEnterClick}>
           들어가기
         </button>
 
