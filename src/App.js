@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './HomePage';
-import Page2 from './Page2';
-import Page3 from './Page3';
-import LoginPage from './LoginPage';
-import SignupPage from './SignupPage';
+import EnterPage from './pages/EnterPage';
+import SelectPage from './pages/SelectPage';
+import ResultPage from './pages/ResultPage';
+import LoginPage from './pages/LoginPage';
+import SignupPage from'./pages/LoginPage'
+import './styles/main.scss';
 
 function App() {
   const [markerPosition, setMarkerPosition] = useState(null); // 좌표 정보 상태
@@ -12,14 +13,14 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route 
-          path="/page2" 
-          element={<Page2 setMarkerPosition={setMarkerPosition} />} // Page2에서 좌표 설정
+        <Route path="/" element={<EnterPage />} />
+        <Route
+          path="/page2"
+          element={<SelectPage setMarkerPosition={setMarkerPosition} />} // Page2에서 좌표 설정
         />
-        <Route 
-          path="/page3" 
-          element={<Page3 markerPosition={markerPosition} />} // Page3에 좌표 전달
+        <Route
+          path="/page3"
+          element={<ResultPage markerPosition={markerPosition} />} // Page3에 좌표 전달
         />
         <Route 
           path="/login"
@@ -34,4 +35,3 @@ function App() {
 }
 
 export default App;
-

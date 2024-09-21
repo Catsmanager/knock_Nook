@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Container, Input, Text } from 'retro-react'; // Use Input from retro-react
-import './App.css';
+import '../App.css';
 
 function SignupPage() {
   const [email, setEmail] = useState('');
