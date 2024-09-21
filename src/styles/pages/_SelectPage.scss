@@ -52,6 +52,7 @@
   transition: background-color 0.3s ease;
   cursor: pointer;
   z-index: 1;
+  word-spacing: -10px;
 
   &:hover {
     background-color: #ff5252;
