@@ -52,6 +52,12 @@ button:hover {
   box-shadow: 0 0 20px rgba(255, 0, 102, 1), 0 0 40px rgba(255, 0, 102, 0.8);
 }
 
+.auth-buttons{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
 /* 컨텐츠의 줌인과 페이드아웃 효과 */
 .walking .content {
   animation: zoomFadeOut 1s forwards;
