@@ -7,7 +7,7 @@ import SignupPage from './SignupPage'; // 회원가입 페이지 모달
 function EnterPage() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
-
+  const navigate = useNavigate();
 
   const handleLoginClick = () => {
     setIsLoginModalOpen(true);
