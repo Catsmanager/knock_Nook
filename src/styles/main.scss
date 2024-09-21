@@ -1,32 +1,11 @@
-@use './pages/EnterPage.scss';
-@use './pages/SelectPage.scss';
-@use './pages/ResultPage.scss';
+@use './pages/_EnterPage.scss';
+@use './pages/_SelectPage.scss';
+@use './pages/_ResultPage.scss';
+@use './pages/_LoginPage.scss';
+@use './pages/_SignupPage.scss';
 
 body {
   margin: 0;
-}
-
-/* 기본 페이지 레이아웃 */
-.App {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 1s ease, opacity 1s ease;
-  opacity: 1;
-}
-
-/* 콘텐츠 중앙에 배치 */
-.content {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 /* 버튼 스타일 */
@@ -44,11 +23,11 @@ button {
 
   &:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 4px rgb(255, 255, 255), 0 0 8px rgb(255, 255, 255);
+    box-shadow: 0 0 4px #a13d3f, 0 0 8px #a13d3f;
   }
 
   &.on {
-    color: rgb(255, 255, 255);
-    border: 1px solid rgb(255, 255, 255);
+    color: #a13d3f;
+    border: 1px solid #a13d3f;
   }
 }
