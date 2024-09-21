@@ -30,4 +30,10 @@ public class InTheStreet {
 
     @Column(name = "detail")
     private String detail;
+
+    @Column(name = "picture")
+    private String picture;
+
+    @Column(name = "liked")
+    private Integer liked;
 }
