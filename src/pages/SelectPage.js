@@ -33,7 +33,7 @@ function SelectPage({ setMarkerPosition }) {
 
     setMarkerPosition({ lat: randomLat, lng: randomLng });
 
-    fetch('http://172.30.1.43:8080/street?one=true&two=true&three=true')
+    fetch('http://172.20.10.3:8080/street?restaurant=true&cafe=true&etc=true')
       .then(async (response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok ' + response.statusText);
@@ -51,7 +51,8 @@ function SelectPage({ setMarkerPosition }) {
         }, 1000);
 
         setTimeout(() => {
-          navigate('/result', { state: { lat: randomLat, lng: randomLng, response: streetData } });
+          console.log(streetData);
+          // navigate('/result', { state: { lat: randomLat, lng: randomLng, response: streetData } });
         }, 3000);
       })
       .catch((error) => {
@@ -75,9 +76,9 @@ function SelectPage({ setMarkerPosition }) {
         </div>
         <div id="map" className="select-map"></div>
         <button className={`select-marker-btn ${throwAnimation ? 'active' : ''}`} onClick={map ? throwMarker : null}>
-  <img src={`${process.env.PUBLIC_URL}/marker-icon.png`} alt="Marker Icon" />
-  마커 던지기
-</button>
+          <img src={`${process.env.PUBLIC_URL}/marker-icon.png`} alt="Marker Icon" />
+          마커 던지기
+        </button>
       </div>
     </div>
   );

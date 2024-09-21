@@ -1,16 +1,10 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD
 import { useNavigate } from 'react-router-dom';
-import { Container } from 'retro-react';
-=======
->>>>>>> 07218175bb1a3f9f25f49a750a3648d2ffa8b41f
 import '../styles/pages/_Enterpage.scss';
 import LoginPage from './LoginPage'; // 로그인 페이지 모달
 import SignupPage from './SignupPage'; // 회원가입 페이지 모달
-import { useNavigate } from 'react-router-dom';
 
 function EnterPage() {
-  const navigate = useNavigate();
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
   const navigate = useNavigate();
@@ -24,7 +18,7 @@ function EnterPage() {
   };
 
   const handleEnterClick = () => {
-    navigate('/select');  // '/select' 경로로 이동
+    navigate('/select'); // '/select' 경로로 이동
   };
 
   const closeModal = () => {
@@ -47,16 +41,10 @@ function EnterPage() {
           style={{ width: '400px', marginBottom: '40px' }}
         />
 
-<<<<<<< HEAD
-   <button style={{ marginBottom: '20px' }} onClick={handleEnterClick}>
-          들어가기
-        </button>
-=======
         <div className="enter-btn-group">
           <button className="enter-btn" onClick={() => navigate('/select')}>
             들어가기
           </button>
->>>>>>> 07218175bb1a3f9f25f49a750a3648d2ffa8b41f
 
           <div className="auth-btn-group">
             <button className="auth-btn" onClick={handleLoginClick}>
