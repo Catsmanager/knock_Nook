@@ -29,4 +29,11 @@ public class InTheStreetController {
         inTheStreetService.likeStreet(id);
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping("/{id}/like")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public ResponseEntity<Integer> getLikedCount(@PathVariable Long id) {
+        Integer likedCount = inTheStreetService.getLikedCountById(id);
+        return ResponseEntity.ok(likedCount);
+    }
 }

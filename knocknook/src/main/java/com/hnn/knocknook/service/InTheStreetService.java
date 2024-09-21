@@ -52,4 +52,8 @@ public class InTheStreetService {
     public void likeStreet(Long id) {
         inTheStreetRepository.incrementLiked(id);
     }
+
+    public Integer getLikedCountById(Long id) {
+        return inTheStreetRepository.findLikedById(id);
+    }
 }
