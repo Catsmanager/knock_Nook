@@ -5,16 +5,15 @@
   max-width: 600px;
   height: 80%;
   max-height: 800px;
-  background-color: #f9f9f9; 
-  border: 5px solid #d0d0d0; 
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+  background-color: #f9f9f9;
+  border: 5px solid #d0d0d0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px; 
+  border-radius: 10px;
 }
-
 
 .map {
   width: 600px;
@@ -22,7 +21,7 @@
 
   background-size: cover;
   background-position: center;
-  border-radius: 8px; 
+  border-radius: 8px;
   z-index: 0;
 }
 
@@ -32,27 +31,27 @@
   bottom: 20px;
   right: 20px;
   padding: 12px 24px;
-  background-color: #ff6b6b; 
+  background-color: #ff6b6b;
   color: white;
   border: none;
   border-radius: 8px;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   z-index: 1;
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease;
 }
 
 .throw-marker-button:hover {
-  background-color: #ff5252; 
+  background-color: #ff5252;
 }
 
 /* 페이지 전체 스타일 */
 .page2 {
   position: relative;
   height: 100vh;
-  background-image: url('./images/stone-wall.jpg'); 
+  background-image: url('./../../../public/stone-wall.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -71,21 +70,19 @@
     opacity: 1;
   }
   50% {
-    transform: translate(-100px, -100px) scale(1.2); 
+    transform: translate(-100px, -100px) scale(1.2);
     opacity: 0.8;
   }
   100% {
-    transform: translate(-300px, -300px) scale(0.5); 
+    transform: translate(-300px, -300px) scale(0.5);
     opacity: 0;
   }
 }
-
 
 .fade-out {
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
-
 
 /* 카테고리 토글 버튼들 - 포스터 내부에서 지도 위에 위치 */
 .category-toggle {

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Page2.css';
-import stoneWall from './images/stone-wall.jpg';
 
 function SelectPage({ setMarkerPosition }) {
   const [fadeOut, setFadeOut] = useState(false);
@@ -99,7 +97,10 @@ function SelectPage({ setMarkerPosition }) {
   };
 
   return (
-    <div className={`page2 ${fadeOut ? 'fade-out' : ''}`} style={{ backgroundImage: `url(${stoneWall})` }}>
+    <div
+      className={`page2 ${fadeOut ? 'fade-out' : ''}`}
+      style={{ backgroundImage: `url(${process.env.PUBLIC_URL + '/stone-wall.jpg'})` }}
+    >
       {/* 포스터 */}
       <div className="poster">
         {/* 상단 토글 버튼 */}

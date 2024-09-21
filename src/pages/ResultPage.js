@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import './../stylesheets/Page3.css';
 
 function ResultPage() {
   const [coords, setCoords] = useState({ lat: null, lng: null }); // 좌표 상태 저장

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import EnterPage from './pages/EnterPage';
 import SelectPage from './pages/SelectPage';
 import ResultPage from './pages/ResultPage';
+import './styles/main.scss';
 
 function App() {
   const [markerPosition, setMarkerPosition] = useState(null); // 좌표 정보 상태

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Container, Text } from 'retro-react';
-import './../App.css';
 
 function EnterPage() {
   const navigate = useNavigate();
