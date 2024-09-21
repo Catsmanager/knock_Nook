@@ -11,7 +11,7 @@ import java.util.Optional;
 @Setter
 public class Result {
     private Optional<Street> street;
-    private Optional<InTheStreet> restaurant;
     private Optional<InTheStreet> cafe;
+    private Optional<InTheStreet> restaurant;
     private Optional<InTheStreet> etc;
 }

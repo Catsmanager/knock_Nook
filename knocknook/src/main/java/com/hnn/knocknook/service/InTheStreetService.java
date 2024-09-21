@@ -46,7 +46,7 @@ public class InTheStreetService {
             etc = null;
         }
 
-        return new Result(street, restaurant, cafe, etc);
+        return new Result(street, cafe, restaurant, etc);
     }
 
 
