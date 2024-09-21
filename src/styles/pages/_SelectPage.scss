@@ -6,6 +6,7 @@
   background-position: center;
   display: flex;
   justify-content: center;
+
   align-items: center;
   z-index:0;
   font-family: 'Nanum Gothic', sans-serif;
@@ -26,6 +27,9 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   z-index:1;
   overflow:hidden;
+
+  background-image: radial-gradient(circle, rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-size: 5px 5px;
 }
 
 .select-toggle-container {
@@ -41,6 +45,18 @@
   background-position: center;
   border-radius: 8px;
 }
+.tape {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-10%, 50%); /* 테이프를 중앙으로 정렬 */
+  width: 500px;
+  height: 100px;
+ 
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 10; /* 다른 요소들보다 위에 표시되도록 설정 */
+}
 
 /* 마커 던지기 버튼 스타일 */
 .select-marker-btn {
@@ -48,9 +64,9 @@
   bottom: 5%;
   right: center;
   padding: 14px 28px;
-  background-color: transparent; /* 배경색 제거 */
+  background-color: #a13d3f; /* 배경색 제거 */
   color: #ffffff; /* 텍스트 숨기기 */
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
   border: none; /* 테두리 제거 */
   border-radius: none;
@@ -61,6 +77,7 @@
   justify-content: center;
   box-shadow: none; /* 그림자 제거 */
   transition: transform 0.3s ease;
+  flex-direction: column;
 
   &:hover {
     transform: translateY(-3px);
@@ -78,6 +95,13 @@
     left: 50%;
     transform: translate(-50%, -50%); /* 이미지 중앙 배치 */
     z-index: 1;
+  }
+
+  span {
+    z-index: 2; /* 이미지 위에 표시되도록 z-index 설정 */
+    color: white; /* 글자 색상 */
+    font-size: 18px;
+    font-weight: bold;
   }
 }
 
@@ -110,17 +134,31 @@
 
 
 /* 기본 버튼 스타일 */
-.category-toggle button {
-  padding: 10px 20px;
-  background-color: #a13d3f!important;
+.select-toggle-container button {
+  padding: 12px 24px;
+  background-color: #a13d3f; /* 기본 배경색 */
   border: none;
-  border-radius: 20px!important; /* 버튼을 둥글게 처리 */
+  border-radius: 30px; /* 더 둥근 버튼 */
   cursor: pointer;
   font-size: 16px;
   font-weight: 600;
-  color: #333;
+  color: white; /* 텍스트를 더 밝게 */
   transition: all 0.3s ease; /* 부드러운 전환 효과 */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 약간의 그림자 */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* 더 깊은 그림자 */
   letter-spacing: 1px;
+  margin: 0 10px; /* 버튼 간격 */
 }
 
+.select-toggle-container button.on {
+  background-color: #e45e4f;
+  color: #fff;
+  box-shadow: 0 8px 16px rgba(231, 76, 60, 0.4);  
+}
+
+
+/* 호버 효과 */
+.select-toggle-container button:hover {
+  background-color: #c0392b; /* 호버 시 색상 */
+  transform: translateY(-2px); /* 약간 위로 이동하는 효과 */
+  box-shadow: 0 8px 16px rgba(192, 57, 43, 0.3); /* 호버 시 그림자 */
+}
