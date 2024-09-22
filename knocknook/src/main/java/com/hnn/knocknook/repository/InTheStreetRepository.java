@@ -26,9 +26,9 @@ public interface InTheStreetRepository extends JpaRepository<InTheStreet, Long> 
 
     @Modifying
     @Transactional
-    @Query("UPDATE InTheStreet i SET i.liked = i.liked + 1 WHERE i.id = ?1")
+    @Query(value = "UPDATE InTheStreet i SET i.liked = i.liked + 1 WHERE i.id = ?1", nativeQuery = true)
     void incrementLiked(Long id);
 
-    @Query("SELECT i.liked FROM InTheStreet i WHERE i.id = ?1")
+    @Query(value = "SELECT i.liked FROM InTheStreet i WHERE i.id = ?1", nativeQuery = true)
     Integer findLikedById(Long id);
 }

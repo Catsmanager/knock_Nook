@@ -13,7 +13,6 @@ public class UserService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    //회원가입 로직
     public Long save(AddUserRequest dto) {
         if (userRepository.existsByEmail(dto.getEmail())) {
             throw new IllegalStateException("User Already Exists");

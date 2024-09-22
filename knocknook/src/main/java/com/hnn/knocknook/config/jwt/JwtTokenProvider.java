@@ -26,10 +26,9 @@ public class JwtTokenProvider {
         return makeToken(new Date(now.getTime() + expiredAt.toMillis()), user);
     }
 
-    //jwt 토큰 생성
     private String makeToken(Date expiry, User user) {
         Date now = new Date();
-        Key key = Keys.hmacShaKeyFor(jwtProperties.getSecretKey().getBytes());
+        Key key = Keys.hmacShaKeyFor(jwtProperties.encodeBase64SecretKey(jwtProperties.getSecretKey()).getBytes());
 
         return Jwts.builder()
                 .setSubject(user.getEmail())
@@ -39,10 +38,9 @@ public class JwtTokenProvider {
                 .compact();
     }
 
-    //토큰 유효성 검증
     public boolean validToken(String token) {
         try {
-            Key key = Keys.hmacShaKeyFor(jwtProperties.getSecretKey().getBytes());
+            Key key = Keys.hmacShaKeyFor(jwtProperties.encodeBase64SecretKey(jwtProperties.getSecretKey()).getBytes());
             Jwts.parserBuilder()
                     .setSigningKey(key)
                     .build()
@@ -53,7 +51,6 @@ public class JwtTokenProvider {
         }
     }
 
-    //토큰 기반 인증 정보 가져오기
     public Authentication getAuthentication(String token) {
         Claims claims = getClaims(token);
         Set<SimpleGrantedAuthority> authorities = Collections.singleton(new SimpleGrantedAuthority("ROLE_USER"));
@@ -62,14 +59,13 @@ public class JwtTokenProvider {
                 User(claims.getSubject(), "", authorities), token, authorities);
     }
 
-    //토큰 기반 유저 ID 가져오기
     public Long getUserId(String token) {
         Claims claims = getClaims(token);
         return claims.get("id", Long.class);
     }
 
     private Claims getClaims(String token) {
-        Key key = Keys.hmacShaKeyFor(jwtProperties.getSecretKey().getBytes());
+        Key key = Keys.hmacShaKeyFor(jwtProperties.encodeBase64SecretKey(jwtProperties.getSecretKey()).getBytes());
         return Jwts.parserBuilder() //클레임 조회
                 .setSigningKey(key)
                 .build()

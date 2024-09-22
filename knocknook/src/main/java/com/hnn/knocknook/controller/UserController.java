@@ -31,7 +31,6 @@ public class UserController {
     private final AuthenticationManager authenticationManager;
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    //회원가입
     @PostMapping("/signup")
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<?> signup(@RequestBody AddUserRequest request) {
@@ -42,7 +41,6 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-    //로그인
     @PostMapping("/login")
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<Map<String, String>> login(@RequestBody LoginRequest loginRequest) {
@@ -60,7 +58,6 @@ public class UserController {
         return ResponseEntity.ok(response);
     }
 
-    //로그아웃
     @GetMapping("/logout")
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<Map<String, String>> logout(HttpServletRequest request, HttpServletResponse response) {

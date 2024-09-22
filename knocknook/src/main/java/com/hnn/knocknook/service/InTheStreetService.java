@@ -5,6 +5,7 @@ import com.hnn.knocknook.entity.Result;
 import com.hnn.knocknook.entity.Street;
 import com.hnn.knocknook.repository.InTheStreetRepository;
 import com.hnn.knocknook.repository.StreetRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,8 +50,10 @@ public class InTheStreetService {
         return new Result(street, cafe, restaurant, etc);
     }
 
+    @Transactional
     public void likeStreet(Long id) {
         inTheStreetRepository.incrementLiked(id);
+        inTheStreetRepository.flush();
     }
 
     public Integer getLikedCountById(Long id) {

@@ -13,7 +13,6 @@ public class InTheStreetController {
     @Autowired
     private InTheStreetService inTheStreetService;
 
-    //쿼리 값에 따라 DB에서 랜덤으로 뽑아 오기
     @GetMapping("/street")
     @CrossOrigin(origins = "http://localhost:3000")
     public Result getMyResult(@RequestParam(name = "cafe") boolean cafe,
@@ -22,17 +21,10 @@ public class InTheStreetController {
         return inTheStreetService.getResult(cafe, restaurant, etc);
     }
 
-    //좋아요 누르면 1씩 올라가는 기능
-    @PutMapping("/{id}/like")
+    @PutMapping("/like/{id}")
     @CrossOrigin(origins = "http://localhost:3000")
-    public ResponseEntity<Void> likeStreet(@PathVariable Long id) {
+    public ResponseEntity<Integer> likeStreet(@PathVariable("id") Long id) {
         inTheStreetService.likeStreet(id);
-        return ResponseEntity.ok().build();
-    }
-
-    @GetMapping("/{id}/like")
-    @CrossOrigin(origins = "http://localhost:3000")
-    public ResponseEntity<Integer> getLikedCount(@PathVariable Long id) {
         Integer likedCount = inTheStreetService.getLikedCountById(id);
         return ResponseEntity.ok(likedCount);
     }
