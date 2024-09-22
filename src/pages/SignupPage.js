@@ -54,7 +54,7 @@ function SignupPage({ closeModal }) {
         value={name}
         onChange={(e) => setName(e.target.value)}
         placeholder="이름"
-        className="signup-input" // SCSS에서 스타일 적용
+        className="signup-input" 
       />
       <input
         type="password"
