@@ -5,7 +5,7 @@ function LoginPage({ closeModal }) {
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
-    const url = 'http://172.20.10.3:8080/login';
+    const url = 'http://192.168.45.151:8080/login';
 
     const data = {
       email: email,

@@ -33,30 +33,26 @@ function SelectPage({ setMarkerPosition }) {
 
     setMarkerPosition({ lat: randomLat, lng: randomLng });
 
-    fetch(`http://172.20.10.3:8080/street?restaurant=${toggleRestaurant}&cafe=${toggleCafe}&etc=${toggleEtc}`)
+    fetch(`http://192.168.45.151:8080/street?restaurant=${toggleRestaurant}&cafe=${toggleCafe}&etc=${toggleEtc}`)
       .then(async (response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok ' + response.statusText);
         }
 
         const streetData = await response.json();
-        console.log(streetData); // 데이터가 잘 들어오는지 확인
 
         setTimeout(() => {
-          marker.setMap(map); // 마커를 지도에 표시
-          map.panTo(markerPosition); // 지도 중심을 마커 위치로 이동
+          marker.setMap(map);
+          map.panTo(markerPosition);
         }, 1000);
 
         setTimeout(() => {
           setThrowAnimation(false);
         }, 1000);
 
-        // 데이터를 받아온 후 결과 페이지로 네비게이트
         setTimeout(() => {
           navigate('/result', {
             state: {
-              lat: randomLat,
-              lng: randomLng,
               response: streetData,
               toggleRestaurant: toggleRestaurant,
               toggleCafe: toggleCafe,
@@ -65,6 +61,7 @@ function SelectPage({ setMarkerPosition }) {
           });
         }, 3000);
       })
+
       .catch((error) => {
         console.log('Fetch Error: ', error);
         alert(error);
