@@ -13,9 +13,9 @@ const ResultPage = () => {
   const toggleCafe = data.toggleCafe;
   const toggleEtc = data.toggleEtc;
 
-  const [restLiked, setRestLiked] = useState(restaurant.liked);
-  const [cafeLiked, setCafeLiked] = useState(cafe.liked);
-  const [etcLiked, setEtcLiked] = useState(etc.liked);
+  const [restLiked, setRestLiked] = useState((restaurant && restaurant.liked) || 0);
+  const [cafeLiked, setCafeLiked] = useState((cafe && cafe.liked) || 0);
+  const [etcLiked, setEtcLiked] = useState((etc && etc.liked) || 0);
 
   const addLikes = async (id) => {
     const url = `http://192.168.45.151:8080/like/${id}`;
