@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const ResultPage = () => {
-  const [coords, setCoords] = useState({ lat: null, lng: null });
-  const [loading, setLoading] = useState(true);
   const location = useLocation();
   const data = location.state;
-
   const street = data.response.street;
   const restaurant = data.response.restaurant;
   const cafe = data.response.cafe;
@@ -16,24 +13,17 @@ const ResultPage = () => {
   const toggleCafe = data.toggleCafe;
   const toggleEtc = data.toggleEtc;
 
-  useEffect(() => {
-    const lat = data.lat;
-    const lng = data.lng;
-    setCoords({ lat, lng });
-
-    setLoading(false);
-  }, []);
+  const [restLiked, setRestLiked] = useState(restaurant.liked);
+  const [cafeLiked, setCafeLiked] = useState(cafe.liked);
+  const [etcLiked, setEtcLiked] = useState(etc.liked);
 
   const addLikes = async (id) => {
-    const url = `http://172.20.10.3:8080/like/${id}`;
+    const url = `http://192.168.45.151:8080/like/${id}`;
 
     try {
       const response = await fetch(url, {
-        method: 'POST',
+        method: 'PUT',
         headers: {
-          'X-Custom-Header': encodeURIComponent(
-            'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZWFuaWRoMTAxMUBnb…hrR7j3Ug5HYm4zO1NrR2iE30lT9PfPqn3GH8-hPYgXU85oedQ'
-          ),
           'Content-Type': 'application/json',
         },
       });
@@ -42,12 +32,10 @@ const ResultPage = () => {
         throw new Error('Network response was not ok');
       }
 
-      const result = await response.json();
-      console.log('Data updated successfully:', result);
-
-      // 필요한 경우 상태 업데이트 또는 다른 작업 수행
+      console.log(response.json());
     } catch (error) {
       console.error('There was a problem with the fetch operation:', error);
+      throw error; // 에러 발생 시 에러를 다시 던져서 호출한 곳에서 처리할 수 있게 함
     }
   };
 
@@ -66,8 +54,14 @@ const ResultPage = () => {
                 <div className="result-component-title">{restaurant.name}</div>
                 <div className="result-component-desc">{restaurant.detail}</div>
                 <div className="result-component-addr">{restaurant.address}</div>
-                <div className="result-component-liked" onClick={() => addLikes(restaurant.id)}>
-                  ♥ {restaurant.liked}
+                <div
+                  className="result-component-liked"
+                  onClick={() => {
+                    setRestLiked(restLiked + 1);
+                    addLikes(restaurant.id);
+                  }}
+                >
+                  ♥ {restLiked}
                 </div>
               </div>
             </div>
@@ -79,7 +73,18 @@ const ResultPage = () => {
                 <div className="result-component-title">{cafe.name}</div>
                 <div className="result-component-desc">{cafe.detail}</div>
                 <div className="result-component-addr">{cafe.address}</div>
-                <div className="result-component-liked">♥ {cafe.liked}</div>
+                {/* <div className="result-component-liked" onClick={() => setCafeLiked(cafeLiked + 1)}>
+                  ♥ {cafeLiked}
+                </div> */}
+                <div
+                  className="result-component-liked"
+                  onClick={() => {
+                    setCafeLiked(cafeLiked + 1);
+                    addLikes(cafe.id);
+                  }}
+                >
+                  ♥ {cafeLiked}
+                </div>
               </div>
             </div>
           )}
@@ -90,7 +95,15 @@ const ResultPage = () => {
                 <div className="result-component-title">{etc.name}</div>
                 <div className="result-component-desc">{etc.detail}</div>
                 <div className="result-component-addr">{etc.address}</div>
-                <div className="result-component-liked">♥ {etc.liked}</div>
+                <div
+                  className="result-component-liked"
+                  onClick={() => {
+                    setEtcLiked(etcLiked + 1);
+                    addLikes(etc.id);
+                  }}
+                >
+                  ♥ {etcLiked}
+                </div>
               </div>
             </div>
           )}

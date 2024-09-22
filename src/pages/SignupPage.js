@@ -12,7 +12,7 @@ function SignupPage({ closeModal }) {
       return;
     }
 
-    const url = 'http://172.20.10.3:8080/signup';
+    const url = 'http://192.168.45.151:8080/signup';
     const data = {
       name: name,
       email: email,

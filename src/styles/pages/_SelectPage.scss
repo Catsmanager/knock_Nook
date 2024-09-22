@@ -1,5 +1,6 @@
 
 .select-background {
+  position: relative;
   height: 100vh;
   background-image: url('../../../public/stone-wall.jpg');
   background-size: cover;
@@ -11,7 +12,6 @@
   z-index: 0;
   font-family: 'Nanum Gothic', sans-serif;
 }
-
 
 .select-container {
   width: 80%;
@@ -25,7 +25,7 @@
   align-items: center;
   background-color: #f9f9f9;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 4;
   overflow: hidden;
 
   background-image: radial-gradient(circle, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
@@ -45,6 +45,7 @@
   background-position: center;
   border-radius: 8px;
 }
+
 .tape {
   position: fixed;
   top: 0;
@@ -71,7 +72,7 @@
   border: none; 
   border-radius: none;
   cursor: pointer;
-  z-index: 2;
+  z-index: 5;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,6 +90,7 @@
     background-color: transparent;
     box-shadow: none;
     animation: throwMarker 1s ease-out forwards;
+    border: none;
   }
 
   img {
