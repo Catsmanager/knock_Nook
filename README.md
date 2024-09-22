@@ -1,11 +1,11 @@
 # <흠냐냥>- _**<KNOCK, NOOK>**_
-
+<br><br>
 ## 서비스 요약
 대구 곳곳의 갈 만한 골목과 장소를 무작위로 추천해주는 서비스
-
+<br><br>
 ## 주제 구분
 C타입 대구 지역 상권을 살리는데 도움을 주는 서비스 
-
+<br><br>
 ## 팀원 소개
 
 Frontend
@@ -18,8 +18,8 @@ Backend
 
 ## 시연 영상
 ![js](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white) 
->> 
-
+>> https://www.youtube.com/watch?v=MerFJzF_x1g&feature=youtu.be
+<br><br>
 ## 서비스 소개
 ### 서비스 개요
 ![image](https://github.com/user-attachments/assets/e51bb9fc-47e2-4b6c-97e6-ac12fed00529)
@@ -68,11 +68,10 @@ Backend
 
 - Backend : 
 ![js](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white) , 
-![js](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white) ,
+![js](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white) : API 제작<br>
 ![js](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white)
-</br></br>
-어떤 언어와 프레임워크를 사용했는지, 만약 배포를 진행했다면 환경은 어떤지 등을 기재
-ex) 프론트엔드로는 TypeScript와 React를 사용, 백엔드로는 Java와 Spring을 사용. AWS를 통해 배포를 진행
+: 거리 및 장소 데이터, 회원 데이터를 위한 DB
+<br><br>
 
 ## 향후 개선 혹은 발전 방안
 1. 추천 받은 장소 저장 기능 + 한 줄 평 남기기 기능 : 사용자가 노크누크를 통해 추천 받은 장소를 저장하고, 짧은 후기나 한 줄 평을 남길 수 있도록 해줌
@@ -82,7 +81,7 @@ ex) 프론트엔드로는 TypeScript와 React를 사용, 백엔드로는 Java와
 5. 대규 DB 구축 : 대구의 모든 골목과 장소를 커버할 수 있도록 정확하고 방대한 데이터베이스를 구축해 다양한 장소를 추천할 수 있게 해줌
 6. 비즈니스 관리 기능 : 상점들이 무작위 노출을 유지하면서도, 사업자가 자신만의 비즈니스 페이지를 통해 더 나은 정보를 제공할 수 있도록 함
 7. '대구로'와의 연계 : 대구 생활 편의 플랫폼인 ‘대구로’와 연계하여 가맹 지점의 추가 정보와 혜택 기능을 제공
-8. 상인 협력 빛 이벤트 제공 : 대구 지자체와 상인들과 협력해 주기적인 이벤트와 혜택을 제공하여 사용자의 서비스 이용률을 높임 : 대구를 시작으로 다른 지역으로 서비스 확장을 고려하고, 해외 관광객을 위한 다국어 지원 서비스를 통해 글로벌 시장으로도 진출할 수 있게 함함
+8. 상인 협력 및 이벤트 제공 : 대구 지자체와 상인들과 협력해 주기적인 이벤트와 혜택을 제공하여 사용자의 서비스 이용률을 높임 : 대구를 시작으로 다른 지역으로 서비스 확장을 고려하고, 해외 관광객을 위한 다국어 지원 서비스를 통해 글로벌 시장으로도 진출할 수 있게 함
 9. 서비스 지역 확
 
 ![image](https://github.com/user-attachments/assets/3d02dafc-bc81-44a5-a5bb-cf50405b1dac)
