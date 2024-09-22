@@ -5,18 +5,16 @@ const ResultPage = () => {
   const [coords, setCoords] = useState({ lat: null, lng: null });
   const [loading, setLoading] = useState(true);
   const location = useLocation();
-  // const data = location.state;
-
   const data = location.state;
 
-  const street = data.street;
-  const restaurant = data.restaurant;
-  const cafe = data.cafe;
-  const etc = data.etc;
+  const street = data.response.street;
+  const restaurant = data.response.restaurant;
+  const cafe = data.response.cafe;
+  const etc = data.response.etc;
 
-  const toggleRestaurant = true;
-  const toggleCafe = true;
-  const toggleEtc = true;
+  const toggleRestaurant = data.toggleRestaurant;
+  const toggleCafe = data.toggleCafe;
+  const toggleEtc = data.toggleEtc;
 
   useEffect(() => {
     const lat = data.lat;
@@ -26,10 +24,32 @@ const ResultPage = () => {
     setLoading(false);
   }, []);
 
-//로딩 중이라면 
-  if (loading) {
-    return <div>잠깐만 기다려주세요</div>;
-  }
+  const addLikes = async (id) => {
+    const url = `http://172.20.10.3:8080/like/${id}`;
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'X-Custom-Header': encodeURIComponent(
+            'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZWFuaWRoMTAxMUBnb…hrR7j3Ug5HYm4zO1NrR2iE30lT9PfPqn3GH8-hPYgXU85oedQ'
+          ),
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const result = await response.json();
+      console.log('Data updated successfully:', result);
+
+      // 필요한 경우 상태 업데이트 또는 다른 작업 수행
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+    }
+  };
 
   return (
     <div className="result-background">
@@ -46,7 +66,9 @@ const ResultPage = () => {
                 <div className="result-component-title">{restaurant.name}</div>
                 <div className="result-component-desc">{restaurant.detail}</div>
                 <div className="result-component-addr">{restaurant.address}</div>
-                <div className="result-component-liked">♥ {restaurant.liked}</div>
+                <div className="result-component-liked" onClick={() => addLikes(restaurant.id)}>
+                  ♥ {restaurant.liked}
+                </div>
               </div>
             </div>
           )}
