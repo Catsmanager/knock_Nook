@@ -9,6 +9,8 @@ function SelectPage({ setMarkerPosition }) {
   const [throwAnimation, setThrowAnimation] = useState(false);
   const navigate = useNavigate();
 
+  const tapeImage = `${process.env.PUBLIC_URL}/tape.png`;
+
   useEffect(() => {
     const container = document.getElementById('map');
     const options = {
@@ -71,6 +73,7 @@ function SelectPage({ setMarkerPosition }) {
 
   return (
     <div className="select-background">
+      <div className="tape" style={{ backgroundImage: `url(${tapeImage})` }}></div>
       <div className="select-container">
         <div className="select-toggle-container">
           <button className={`${toggleRestaurant ? 'on' : ''}`} onClick={() => setToggleRestaurant(!toggleRestaurant)}>
@@ -85,12 +88,11 @@ function SelectPage({ setMarkerPosition }) {
         </div>
         <div id="map" className="select-map"></div>
         <button className={`select-marker-btn ${throwAnimation ? 'active' : ''}`} onClick={map ? throwMarker : null}>
-          <img
-            src={`${process.env.PUBLIC_URL}/marker-icon.png`}
-            alt="Marker Icon"
-            style={{ display: `${throwAnimation ? 'block' : 'none'}` }}
-          />
-          마커 던지기
+          {throwAnimation ? (
+            <img src={`${process.env.PUBLIC_URL}/marker-icon.png`} alt="Marker Icon" />
+          ) : (
+            <span>마커 던지기</span>
+          )}
         </button>
       </div>
     </div>
